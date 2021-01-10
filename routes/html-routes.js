@@ -1,8 +1,21 @@
 // Import Dependency
+const path = require("path");
 
 //Handle HTML Requests
-    // Route
+module.exports = (app) => {
+    // Get Route for Index
+    app.get("/", (req, res) => {
+        res.sendFile(path.join(_dirname, "../public/index.html"));
+    })
 
-// Add exercise to a workout page
+    // Get Route for Exercise | Add exercise to a workout page
+    app.get("/", (req, res) => {
+        res.sendFile(path.join(_dirname, "../public/exercise.html"));
+    })
 
-// Stats Page
+    // Get Route for Stats Page
+    app.get("/", (req, res) => {
+        res.sendFile(path.join(_dirname, "../public/stats.html"));
+    })
+};
+
