@@ -12,17 +12,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-require("./routes/api-routes");
-require("./routes/html-routes");
+app.use(require("./routes/api-routes"));
+app.use(require("./routes/html-routes"));
 
 // Setup Mongo connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://fitness-admin:<harrypotter>@cluster0.ftenn.mongodb.net/Workout", {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-}).then(() => {
-  console.log("connected");
+const URI = process.env.MONGODB_URI || "mongodb://localhost/workout"
+
+mongoose.connect(URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useFindAndModify: false
 });
 
 
