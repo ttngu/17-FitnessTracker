@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { workout } = require(".");
+// const { workout } = require(".");
 const Schema = mongoose.Schema;
 
 // Define workout and exercise details
@@ -54,7 +54,7 @@ workoutSchema.virtual("totalDuration").get(function() {
     }, 0);
 });
 
-const Workout = mongoose.model("workout", workoutSchema);
+const Workout = mongoose.model("Workout", workoutSchema);
 
 // Export
-module.exports = workout;
+module.exports = Workout;
