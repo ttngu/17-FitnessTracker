@@ -1,21 +1,21 @@
 // Import Dependency
+const router = require("express").Router();
 const path = require("path");
 
-//Handle HTML Requests
-module.exports = (app) => {
-    // Get Route for Index
-    app.get("/", (req, res) => {
-        res.sendFile(path.join(_dirname, "../public/index.html"));
-    })
 
-    // Get Route for Exercise | Add exercise to a workout page
-    app.get("/exercise?", (req, res) => {
-        res.sendFile(path.join(_dirname, "../public/exercise.html"));
-    })
+// Get Route for Index
+router.get("/", (req, res) => {
+    res.sendFile(path.join(_dirname, "../public/index.html"));
+})
 
-    // Get Route for Stats Page
-    app.get("/stats", (req, res) => {
-        res.sendFile(path.join(_dirname, "../public/stats.html"));
-    })
-};
+// Get Route for Exercise | Add exercise to a workout page
+router.get("/exercise", (req, res) => {
+    res.sendFile(path.join(_dirname, "../public/exercise.html"));
+})
 
+// Get Route for Stats Page
+router.get("/stats", (req, res) => {
+    res.sendFile(path.join(_dirname, "../public/stats.html"));
+})
+
+module.exports = router;
